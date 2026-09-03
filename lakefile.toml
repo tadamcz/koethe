@@ -1,0 +1,20 @@
+name = "Koethe"
+version = "0.1.0"
+defaultTargets = ["Koethe", "Challenge", "Solution"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.28.0"
+
+# The primary resolution: `Koethe.lean` imports it, and `Solution.lean` imports it in turn.
+[[lean_lib]]
+name = "Koethe"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

@@ -1,0 +1,132 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml v0.4 (mathlib-initiative format, Palomar registry rules).
+version: v0.4
+project:
+  name: 'Köthe conjecture: disproof (Krempa''s matrix form)'
+  description: 'Disproof of the Köthe conjecture in Krempa''s matrix form: there is a ring R with a nil two-sided
+    ideal I such that the matrix ideal M_2(I) is not nil. Found autonomously by GPT-6 Astra in an Epoch AI evaluation
+    run over the open problems of Formal Conjectures'' Wikipedia collection.'
+  authors:
+  - name: Tom Adamczewski
+    github: tadamcz
+    orcid: https://orcid.org/0000-0001-6772-1185
+  license: Apache-2.0
+  responsible_maintainers:
+  - name: Tom Adamczewski
+    github: tadamcz
+    orcid: https://orcid.org/0000-0001-6772-1185
+classification:
+  arxiv:
+  - math.RA
+  msc2020:
+  - 16N40
+  - 16S50
+sources:
+- title: 'Köthe conjecture: disproof (Krempa''s matrix form)'
+  type: original-proof
+  relationship: other
+  note: This formalization is the first presentation of the result. The Lean proof was found by a pre-release version
+    of GPT-6 Astra working autonomously in Epoch AI's LeanOpenProblems harness; no human wrote or steered the proof.
+    The proof has been machine-checked but not yet examined in depth by human experts; novelty of its ideas relative
+    to the literature has not been established.
+- title: Köthe conjecture (Wikipedia)
+  type: web discussion
+  id: https://en.wikipedia.org/wiki/K%C3%B6the_conjecture
+  location: https://en.wikipedia.org/wiki/K%C3%B6the_conjecture
+  relationship: background
+  note: The problem page the Formal Conjectures statement cites.
+- title: Die Struktur der Ringe, deren Restklassenring nach dem Radikal vollständig reduzibel ist
+  authors:
+  - Gottfried Köthe
+  type: paper
+  location: Math. Z. 32 (1930), pp. 161–186
+  id: https://doi.org/10.1007/BF01194626
+  relationship: background
+  note: Origin of the conjecture.
+- title: Logical connections between some open problems concerning nil rings
+  authors:
+  - Jan Krempa
+  type: paper
+  location: Fund. Math. 76 (1972), no. 2, pp. 121–130
+  relationship: background
+  note: Equivalence of Köthe's conjecture with the matrix form that is refuted here.
+- title: Polynomial rings over nil rings need not be nil
+  authors:
+  - Agata Smoktunowicz
+  type: paper
+  location: J. Algebra 233 (2000), no. 2, pp. 427–436
+  id: https://doi.org/10.1006/jabr.2000.8451
+  relationship: background
+  note: Counterexample to the related Amitsur conjecture, over countable fields; context for the construction here.
+related_formalizations:
+- id: https://github.com/google-deepmind/formal-conjectures/blob/9cbe1d3c12998c786b7c2cd99ce28a21b6631f66/FormalConjectures/Wikipedia/Koethe.lean
+  relationship: builds-on
+  note: Formal Conjectures states the conjecture with `sorry` as an open problem; the definitions and statement
+    here are copied verbatim from this file at this commit, and the compared theorem is its negation, proved.
+- id: https://github.com/epoch-research/LeanOpenProblems/blob/0ef96d7b12cfa96a93761b4bba1c635f4546c5ca/apn/data/wikipedia/Isolated/Koethe.KotherConjecture.variants.general_matrix.lean
+  relationship: builds-on
+  note: The isolated statement file given to the AI system (the Formal Conjectures statement with a `.disproof`
+    negation appended).
+status:
+  scope: 'Fully formalized: the compared theorem `Koethe.KotherConjecture.variants.general_matrix.disproof` in `Challenge.lean`
+    is proved in `Solution.lean` via the imported module `Koethe.Resolutions.Koethe` with no `sorry` and no axioms
+    beyond propext, Quot.sound and Classical.choice. Only the negation of the formal conjecture is advertised; stronger
+    or more specific facts visible in the proof are not part of the compared statement.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+automation:
+  methods:
+  - method: autonomous
+    models:
+    - GPT-6 Astra (pre-release version, OpenAI)
+    framework: Inspect AI (UK AISI) with the LeanOpenProblems task harness; deepagent-based agent
+    tool_setup: 'The model worked alone in a Docker container without network access, with bash, a text editor,
+      a resource-budget tool, a Lean 4 toolchain (v4.27.0) with Mathlib (via Formal Conjectures at commit 9cbe1d3c1299),
+      SageMath, Python (sympy, mpmath, numpy, pantograph), subagents, persistent memory and a todo list; no literature
+      snapshot. Its submission was checked in a separate pristine container by Comparator (Lean FRO) against the
+      trusted statement, permitting only the three standard axioms. Budget: $1,000 and 96 hours of working time
+      per statement, one attempt.'
+    prompting_notes: 'Fixed task prompt from the harness (apn/prompts.py in LeanOpenProblems): settle the conjecture
+      in Spec.lean by filling the `sorry` of either the statement or its `.disproof` negation without altering either
+      statement or the imports, using only the permitted axioms; a description of the available tools; and general
+      encouragement that open conjectures are not infeasible. No problem-specific hints or human interaction.'
+  notes: 'The Lean development was written entirely by the AI system inside the harness, in the evaluation run `wikipedia-vega-1000usd`
+    of Epoch AI''s LeanOpenProblems harness (2026-09), in which a pre-release version of GPT-6 Astra attempted,
+    autonomously and once each, all 222 research-open statements of the `Wikipedia` collection of Formal Conjectures
+    under a budget of $1,000 and 96 hours of working time per statement. Tom Adamczewski ran the harness and packaged
+    the verified output into this repository. The only edits to the AI-written file are mechanical and are listed
+    in the README: removed the sorry''d stub of the original conjecture `KotherConjecture.variants.general_matrix`
+    (lines 3222–3227 of the original) together with its docstring and `open scoped Classical in`; restated `Koethe.KotherConjecture.variants.general_matrix.disproof`
+    explicitly under `open scoped Classical in` (the original used `¬ (type_of% @Koethe.KotherConjecture.variants.general_matrix)`,
+    which referenced the removed stub) and added a docstring.'
+fidelity:
+  divergences: 'The compared theorem is exactly the negation of the Formal Conjectures statement `general_matrix`,
+    restated explicitly: for all `R : Type u_1` with `[Ring R]`, all two-sided ideals `I` with `IsNil I` (every
+    element nilpotent), and all finite index types `n : Type u_2`, `IsNil (TwoSidedIdeal.matrix n I)`. `TwoSidedIdeal.matrix
+    n I` is Mathlib''s entrywise matrix ideal `M_n(I)` and requires a `DecidableEq n` instance, supplied classically
+    (`open scoped Classical in`) exactly as in the Formal Conjectures file. The definition `Koethe.IsNil` is copied
+    verbatim from that file. The statement is universe-polymorphic in `R` and `n`; the witness is built in every
+    universe (`AlgebraicClosure (ULift (ZMod 2))`, index type `ULift (Fin 2)`). The relation to Köthe''s original
+    formulation (sums of nil left ideals) is a standard argument stated in the README but not formalized.'
+review:
+  status: 'mechanically verified (Comparator: Lean kernel replay, standard axioms only) in the harness and again
+    in this repository''s CI; no human mathematical review yet'
+  reviewers:
+  - none
+  notes: 'Statement audit: the statement is Formal Conjectures'' formalization of the problem, taken as is; its
+    correspondence to the informal problem is discussed in fidelity.divergences and the README. Mathematical review:
+    none beyond mechanical verification; the informal proof account in the README was machine-generated from the
+    Lean proof and has not been checked by a human expert.'
+alignment:
+  namespace: Koethe
+  statements:
+  - source: 'Formal Conjectures `FormalConjectures/Wikipedia/Koethe.lean` (Wikipedia: https://en.wikipedia.org/wiki/K%C3%B6the_conjecture)'
+    lean: Koethe.KotherConjecture.variants.general_matrix.disproof
+    module: Challenge
+    status: proved
+    note: The compared theorem is the negation of the formal conjecture; proving it disproves the conjecture. Its
+      exact text is identical to the benchmark statement (Comparator enforces this against the imported proof module).
+acknowledgements: Lean 4, Mathlib and the Lean FRO's Comparator; Google DeepMind's Formal Conjectures project for
+  the formal statement; Epoch AI for the compute and evaluation infrastructure; OpenAI for pre-release access to
+  GPT-6 Astra; the Palomar registry template for the repository layout.
