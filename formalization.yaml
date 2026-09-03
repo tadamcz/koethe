@@ -87,6 +87,12 @@ automation:
       snapshot. Its submission was checked in a separate pristine container by Comparator (Lean FRO) against the
       trusted statement, permitting only the three standard axioms. Budget: $1,000 and 96 hours of working time
       per statement, one attempt.'
+    cost:
+      wall_time: 26.1 hours of agent working time (harness working_time, excluding API retry waits)
+      spend_usd: 432 USD, computed from the attempt's token counts at GPT-6 Astra's standard rates (USD 10 per million
+        input tokens, 50 per million output tokens, 1 per million cache-read tokens and 12.50 per million cache-write
+        tokens)
+      hardware: API-only inference; the agent's sandbox ran on Epoch AI's cloud evaluation infrastructure
     prompting_notes: 'Fixed task prompt from the harness (apn/prompts.py in LeanOpenProblems): settle the conjecture
       in Spec.lean by filling the `sorry` of either the statement or its `.disproof` negation without altering either
       statement or the imports, using only the permitted axioms; a description of the available tools; and general

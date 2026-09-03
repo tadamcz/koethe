@@ -59,6 +59,11 @@ checked in a separate pristine container by Comparator against the trusted state
 `Classical.choice`. The harness is public at [epoch-research/LeanOpenProblems](https://github.com/epoch-research/LeanOpenProblems); the dataset used here lives on its
 `wikipedia-dataset` branch. No human saw or steered the proof search.
 
+**Cost and time.** The attempt used 0.19 million input, 4.2 million output, 64 million cache-read and 12.4 million cache-write tokens,
+which cost $432 at GPT-6 Astra's standard rates as provided by OpenAI on 3 September 2026 ($10 / $50 / $1 / $12.50 per
+million input / output / cache-read / cache-write tokens); the harness metered it at stand-in GPT-5.6 Sol prices. The
+agent's working time (harness working_time, excluding waits on API retries and rate limits) was 26.1 hours.
+
 **Statement.** The definitions and the statement come verbatim from [`FormalConjectures/Wikipedia/Koethe.lean`](https://github.com/google-deepmind/formal-conjectures/blob/9cbe1d3c12998c786b7c2cd99ce28a21b6631f66/FormalConjectures/Wikipedia/Koethe.lean) in
 Google DeepMind's Formal Conjectures at commit `9cbe1d3c1299`, where the problem is stated with `sorry` as open. The harness isolated the
 statement into [`apn/data/wikipedia/Isolated/Koethe.KotherConjecture.variants.general_matrix.lean`](https://github.com/epoch-research/LeanOpenProblems/blob/0ef96d7b12cfa96a93761b4bba1c635f4546c5ca/apn/data/wikipedia/Isolated/Koethe.KotherConjecture.variants.general_matrix.lean) (with a `.disproof` negation added), and that file
