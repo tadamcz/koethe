@@ -1,11 +1,8 @@
+> **Note.** This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The Lean proof itself was written by GPT-6 Astra, as described below.
+
 # Köthe conjecture: disproof (Krempa's matrix form)
 
 [![CI](https://github.com/tadamcz/koethe/actions/workflows/ci.yml/badge.svg)](https://github.com/tadamcz/koethe/actions/workflows/ci.yml)
-
-> **Note.** This README, the documentation in `Challenge.lean` and `formalization.yaml` were machine-written by Claude (Anthropic)
-> at the direction of Tom Adamczewski, from the run's files and the module documentation inside the proof file, and reviewed by
-> him. The Lean proof itself was written by GPT-6 Astra, as described below, and the proof account below was machine-generated
-> from that proof.
 
 Machine-checked disproof of the [Köthe conjecture](https://en.wikipedia.org/wiki/K%C3%B6the_conjecture) in Lean 4 with Mathlib, found autonomously by a
 pre-release version of **GPT-6 Astra** (OpenAI) in an evaluation run by Epoch AI over the open problems of Formal Conjectures'
