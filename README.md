@@ -48,6 +48,16 @@ universe-polymorphic in `R` and `n`; the witness is built in every universe (`Al
 type `ULift (Fin 2)`). The relation to Köthe's original formulation (sums of nil left ideals) is a standard argument
 stated in the README but not formalized.
 
+## Paper
+
+A human-written account of the result appears in Tom Adamczewski, Bernhard Böhmler and René Marczinzik,
+[*A counterexample to Köthe's conjecture and a question of Rowen*](https://arxiv.org/abs/2609.07996), arXiv:2609.07996
+[math.RA], 7 September 2026. It presents a modified version of the construction here over an arbitrary countable field
+rather than `\overline{𝔽_2}`, and refutes Köthe's conjecture as originally stated: the two column ideals of `M_2(N)` are
+nil left ideals whose sum contains the non-nilpotent matrix `W`. It also uses the construction to answer negatively a 1989
+question of Rowen (whether `⋂_d 𝒦(D)^d = 0` forces `𝒦(D) = 𝔑(D)`). The mathematical development was reviewed and checked
+by the second and third authors; the paper cites this repository for the original construction and its formal proof.
+
 ## Provenance
 
 **Run.** The proof was produced in the evaluation run `wikipedia-vega-1000usd` of Epoch AI's LeanOpenProblems harness (2026-09), in which a pre-release version of GPT-6 Astra attempted, autonomously and once each, all 222 research-open statements of the `Wikipedia` collection of Formal Conjectures under a budget of $1,000 and 96 hours of working time per statement. The agent works in a

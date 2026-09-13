@@ -58,6 +58,18 @@ sources:
   id: https://doi.org/10.1006/jabr.2000.8451
   relationship: background
   note: Counterexample to the related Amitsur conjecture, over countable fields; context for the construction here.
+- title: A counterexample to Köthe's conjecture and a question of Rowen
+  authors:
+  - Tom Adamczewski
+  - Bernhard Böhmler
+  - René Marczinzik
+  type: paper
+  location: arXiv:2609.07996 [math.RA], 7 September 2026
+  id: https://arxiv.org/abs/2609.07996
+  relationship: other
+  note: Human-written, independently checked version of the construction found here, generalised to an arbitrary
+    countable field, refuting Köthe's conjecture as originally stated and answering a 1989 question of Rowen. The
+    paper cites this repository as the source of the original construction and its formal proof.
 related_formalizations:
 - id: https://github.com/google-deepmind/formal-conjectures/blob/9cbe1d3c12998c786b7c2cd99ce28a21b6631f66/FormalConjectures/Wikipedia/Koethe.lean
   relationship: builds-on
